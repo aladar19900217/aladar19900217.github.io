@@ -1,71 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PDF 翻頁效果</title>
-<style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-    overflow: hidden;
-  }
-  
-  #pdf-container {
-    position: relative;
-    width: 80vw;
-    height: 80vh;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  }
-
-  .page {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    transition: transform 0.5s ease;
-  }
-
-  .category-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 10;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Viewer</title>
+  <!-- 引入 PDF.js 的 CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.270/pdf_viewer.css">
 </head>
 <body>
-  <div class="category-bar">
-    <h2>分類標籤</h2>
-    <ul>
-      <li><a href="#">標籤一</a></li>
-      <li><a href="#">標籤二</a></li>
-      <li><a href="#">標籤三</a></li>
-    </ul>
-  </div>
+  <!-- PDF 瀏覽器容器 -->
+  <div id="pdfViewer"></div>
 
-  <div id="pdf-container">
-    <div class="page">
-      <object data="your-pdf-file.pdf" type="application/pdf" width="100%" height="100%">
-        <p>Alternative text - include a link <a href="https://github.com/aladar19900217/aladar19900217.github.io/blob/main/2016.pdf">to the PDF!</a></p>
-      </object>
-    </div>
-  </div>
+  <!-- 引入 PDF.js 與相關 script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.270/pdf.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.270/pdf_viewer.js"></script>
 
   <script>
-    const page = document.querySelector('.page');
+    // PDF.js 初始化設定
+    const pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.270/pdf.worker.min.js';
 
-    page.addEventListener('click', () => {
-      page.style.transform = 'rotateY(180deg)';
+    // 建立 PDF 瀏覽器實例
+    const pdfViewer = new pdfjsViewer.PDFViewer({
+      container: document.querySelector('#pdfViewer')
     });
+
+    // 載入 PDF 文件
+    const url = 'https://github.com/aladar19900217/aladar19900217.github.io/blob/main/2016.pdf';  // 將 'your-pdf-file-url.pdf' 替換成你的 PDF 文件的 URL
+    const loadingTask = pdfjsLib.getDocument(url);
+    loadingTask.promise.then((pdfDocument) => {
+      // 將 PDF 文件指派給 PDF 瀏覽器實例
+      pdfViewer.setDocument(pdfDocument);
+
+      // 添加翻頁控制
+      document.querySelector('#prevPage').addEventListener('click', () => {
+        pdfViewer.currentPageNumber -= 1;
+      });
+      document.querySelector('#nextPage').addEventListener('click', () => {
+        pdfViewer.currentPageNumber += 1;
+      });
+    });
+
+    // 開始顯示第一頁
+    pdfViewer.currentPageNumber = 1;
   </script>
+
+  <!-- 翻頁按鈕 -->
+  <button id="prevPage">Previous Page</button>
+  <button id="nextPage">Next Page</button>
 </body>
 </html>
