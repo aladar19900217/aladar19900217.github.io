@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF 翻書效果0.1</title>
+  <title>PDF 翻書效果</title>
   <!-- 引入 PDF.js 的核心文件 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
   <!-- 引入 Turn.js 的 CSS 文件 -->
@@ -69,7 +69,7 @@
     let pageNum = 1;
     let pageRendering = false;
     let pageNumPending = null;
-    const scale = 1.5;
+    const scale = 1;
 
     // 獲取 PDF 文件
     pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
@@ -133,5 +133,8 @@
       renderPage(pageNum);
     }
   </script>
+</body>
+</html>
+
 </body>
 </html>
