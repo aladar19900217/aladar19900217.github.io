@@ -3,73 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Display PDF from GitHub2</title>
-  <!-- 引入 PDF.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.211/pdf.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-    }
-    .pdf-container {
-      width: 800px;
-      margin: 20px auto;
-    }
-    .pdf-page {
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-      page-break-after: always;
-    }
-    .pdf-page canvas {
-      display: block;
-      margin: auto;
-      border: 1px solid black;
-    }
-  </style>
+  <title>PDF 電子型錄</title>
 </head>
 <body>
-  <h1 style="text-align: center;">Display PDF from GitHub</h1>
-  <div class="pdf-container" id="pdf-viewer">
-    <!-- PDF 页面将会动态加载在这里 -->
-  </div>
-
-  <script>
-    // 在这里加载和显示 PDF 文件
-    document.addEventListener('DOMContentLoaded', function() {
-      var pdfUrl = 'example.pdf'; // PDF 文件位于同一仓库中
-
-      // 使用 PDF.js 加载 PDF 文件
-      pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
-        var pdfContainer = document.getElementById('pdf-viewer');
-
-        // 循环加载每一页
-        for (var pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-          pdf.getPage(pageNum).then(function(page) {
-            var scale = 1.5;
-            var viewport = page.getViewport({ scale: scale });
-
-            // 创建一个 div 元素作为每一页的容器
-            var pageContainer = document.createElement('div');
-            pageContainer.className = 'pdf-page';
-            pdfContainer.appendChild(pageContainer);
-
-            // 创建一个 canvas 元素来渲染 PDF 内容
-            var canvas = document.createElement('canvas');
-            var context = canvas.getContext('2d');
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-            pageContainer.appendChild(canvas);
-
-            // 将 PDF 页面渲染到 canvas 上
-            var renderContext = {
-              canvasContext: context,
-              viewport: viewport
-            };
-            page.render(renderContext);
-          });
-        }
-      });
-    });
-  </script>
+  <h1>我的產品電子型錄</h1>
+  <embed src="example.pdf" width="800px" height="600px" type="application/pdf">
 </body>
 </html>
