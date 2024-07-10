@@ -7,7 +7,7 @@ const scale = 1.5;
 const flipbookContainer = document.getElementById('flipbook');
 
 // 獲取 PDF 文件
-const url = 'https://raw.githubusercontent.com/aladar19900217/aladar19900217.github.io/main/example.pdf'; // 替換為您的 PDF 文件路徑
+const url = 'https://github.com/d90721ff-bbef-42ae-ad2f-462af6b4756e'; // 替換為您的 PDF 文件路徑
 
 // 加載 PDF
 pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
