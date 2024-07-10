@@ -7,7 +7,7 @@ const scale = 1.5;
 const flipbookContainer = document.getElementById('flipbook');
 
 // 獲取 PDF 文件
-const url = 'https://drive.google.com/file/d/1NSBR7UnugYXXrmqA2Oadg5MSYH83z9Hi/preview'; // 替換為您的 PDF 文件路徑
+const url = 'https://drive.google.com/file/d/1NSBR7UnugYXXrmqA2Oadg5MSYH83z9Hi'; // 替換為您的 PDF 文件路徑
 
 // 加載 PDF
 pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
