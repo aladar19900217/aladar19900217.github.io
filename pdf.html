@@ -1,74 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF 翻頁效果</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        .flipbook {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-        .page {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.6s ease-in-out;
-            transform-style: preserve-3d;
-        }
-        .page.back {
-            transform: rotateY(-180deg);
-        }
-        .page canvas {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        .controls {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-        }
-        .controls button {
-            padding: 10px 20px;
-            margin: 0 10px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            outline: none;
-            border-radius: 4px;
-        }
-        .controls button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF 翻書效果</title>
+  <!-- 引入 PDF.js 的核心文件 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+  <!-- 引入 Turn.js 的 CSS 文件 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.0.2/turn.min.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* 隱藏頁面外部區域 */
+    }
+    #flipbook {
+      width: 100vw;
+      height: 100vh;
+    }
+    .page {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    canvas {
+      display: block;
+      margin: auto;
+    }
+  </style>
 </head>
 <body>
-    <div class="flipbook" id="flipbook"></div>
+  <h1>我的 PDF 翻書效果</h1>
+  <!-- 翻書容器 -->
+  <div id="flipbook">
+    <!-- PDF 页面将通过 JavaScript 动态添加 -->
+  </div>
 
-    <div class="controls">
-        <button onclick="goPrevious()">Previous</button>
-        <button onclick="goNext()">Next</button>
-    </div>
+  <!-- 引入 Turn.js 的 JavaScript 文件 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.0.2/turn.min.js"></script>
+  <script>
+    // 初始化 Turn.js
+    $('#flipbook').turn({
+      width: '100vw',
+      height: '100vh',
+      autoCenter: true, // 自動居中
+      display: 'single' // 單頁顯示
+    });
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
-    <script src="script.js"></script>
+    // PDF.js 加載和渲染
+    const url = 'example.pdf'; // 替換為您的 PDF 文件路徑
+    let pdfDoc = null;
+    let pageNum = 1;
+    let pageRendering = false;
+    let pageNumPending = null;
+    const scale = 1.5;
+
+    // 獲取 PDF 文件
+    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+      pdfDoc = pdfDoc_;
+      renderPage(pageNum);
+    });
+
+    // 渲染指定頁面
+    function renderPage(num) {
+      pageRendering = true;
+      pdfDoc.getPage(num).then(function(page) {
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        const renderContext = {
+          canvasContext: ctx,
+          viewport: viewport
+        };
+
+        const renderTask = page.render(renderContext);
+
+        // 等待渲染完成
+        renderTask.promise.then(function() {
+          const div = document.createElement('div');
+          div.className = 'page';
+          div.appendChild(canvas);
+          document.getElementById('flipbook').appendChild(div);
+          pageRendering = false;
+
+          if (pageNumPending !== null) {
+            renderPage(pageNumPending);
+            pageNumPending = null;
+          }
+        });
+      });
+
+      // 更新頁面計數器
+      document.getElementById('page_num').textContent = pageNum;
+    }
+
+    // 前一頁
+    function goPrevious() {
+      if (pageNum <= 1 || pageRendering) {
+        return;
+      }
+      pageNum--;
+      document.getElementById('flipbook').innerHTML = ''; // 清除之前的頁面
+      renderPage(pageNum);
+    }
+
+    // 下一頁
+    function goNext() {
+      if (pageNum >= pdfDoc.numPages || pageRendering) {
+        return;
+      }
+      pageNum++;
+      document.getElementById('flipbook').innerHTML = ''; // 清除之前的頁面
+      renderPage(pageNum);
+    }
+  </script>
 </body>
 </html>
+
