@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF 翻書效果2</title>
+  <title>PDF 翻書效果</title>
   <!-- 引入 PDF.js 的核心文件 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
   <!-- 引入 Turn.js 的 CSS 文件 -->
@@ -15,9 +15,38 @@
       overflow: hidden; /* 隱藏頁面外部區域 */
     }
     #flipbook {
-      width: 800px;
-      height: 600px;
-      margin: 0 auto;
+      width: 100%; /* 使用百分比以适应不同屏幕 */
+      max-width: 800px; /* 设置最大宽度 */
+      height: 600px; /* 固定高度 */
+      margin: 20px auto; /* 自动居中 */
+      position: relative; /* 相对定位 */
+    }
+    .page {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    canvas {
+      display: block;
+      margin: auto;
+    }
+    .flipbook-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      font-size: 18px;
+    }
+    .flipbook-btn.prev {
+      left: 10px;
+    }
+    .flipbook-btn.next {
+      right: 10px;
     }
   </style>
 </head>
@@ -25,6 +54,11 @@
   <h1>我的 PDF 翻書效果</h1>
   <!-- 翻书容器 -->
   <div id="flipbook"></div>
+  
+  <!-- 前一頁按鈕 -->
+  <button class="flipbook-btn prev" onclick="goPrevious()">上一頁</button>
+  <!-- 下一頁按鈕 -->
+  <button class="flipbook-btn next" onclick="goNext()">下一頁</button>
 
   <!-- 引入 Turn.js 的 JavaScript 文件 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.0.2/turn.min.js"></script>
