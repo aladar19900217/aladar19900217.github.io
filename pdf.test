@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF 翻書效果</title>
+  <!-- 引入 Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- 引入 Turn.js 的 CSS 文件 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.0.2/turn.min.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* 隱藏頁面外部區域 */
+    }
+    #flipbook {
+      width: 100%; /* 使用百分比以适应不同屏幕 */
+      max-width: 800px; /* 设置最大宽度 */
+      height: 600px; /* 固定高度 */
+      margin: 20px auto; /* 自动居中 */
+      position: relative; /* 相对定位 */
+    }
+    .flipbook-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      z-index: 1000; /* 提高按钮层级，确保在书籍之上 */
+    }
+    .flipbook-btn.prev {
+      left: 10px;
+    }
+    .flipbook-btn.next {
+      right: 10px;
+    }
+    .page-num {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+    .select-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <h1 class="text-center mt-3 mb-4">我的 PDF 翻書效果</h1>
+    
+    <!-- 下拉選單 -->
+    <div class="select-container">
+      <label for="pageSelect" class="form-label">選擇頁碼：</label>
+      <select id="pageSelect" class="form-select" onchange="gotoPage(this)">
+        <!-- 分頁標籤選項將由JavaScript生成 -->
+      </select>
+    </div>
+    
+    <!-- 翻书容器 -->
+    <div id="flipbook"></div>
+    
+    <!-- 前一頁按鈕 -->
+    <button class="flipbook-btn prev" onclick="$('#flipbook').turn('previous')">上一頁</button>
+    <!-- 下一頁按鈕 -->
+    <button class="flipbook-btn next" onclick="$('#flipbook').turn('next')">下一頁</button>
+    <!-- 顯示頁碼 -->
+    <div id="page_num" class="page-num"></div>
+  </div>
+
+  <!-- 引入 Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- 引入 Turn.js 的 JavaScript 文件 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.0.2/turn.min.js"></script>
+  <!-- 引入 PDF.js 的核心文件 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+  <script>
+    // PDF.js 加载和渲染
+    const url = 'example.pdf'; // 替換為您的 PDF 文件路徑
+    let pdfDoc = null;
+    let pageNum = 1;
+    const scale = 1.5;
+
+    // 獲取 PDF 文件
+    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+      pdfDoc = pdfDoc_;
+      renderPages();
+    });
+
+    // 渲染所有頁面
+    function renderPages() {
+      for (let num = 1; num <= pdfDoc.numPages; num++) {
+        pdfDoc.getPage(num).then(function(page) {
+          const viewport = page.getViewport({ scale });
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          const renderContext = {
+            canvasContext: ctx,
+            viewport: viewport
+          };
+
+          const renderTask = page.render(renderContext);
+
+          renderTask.promise.then(function() {
+            const div = document.createElement('div');
+            div.className = 'page';
+            div.appendChild(canvas);
+            $('#flipbook').turn('addPage', div.outerHTML, num);
+
+            // 添加分页标签选项
+            const option = document.createElement('option');
+            option.value = num;
+            option.textContent = `Page ${num}`;
+            document.getElementById('pageSelect').appendChild(option);
+          });
+        });
+      }
+    }
+
+    // 初始化翻书效果
+    $('#flipbook').turn({
+      width: '100%',
+      height: '100%',
+      autoCenter: true
+    });
+
+    // 跳轉到選擇的頁碼
+    function gotoPage(select) {
+      const pageNum = parseInt(select.value);
+      if (!isNaN(pageNum)) {
+        $('#flipbook').turn('page', pageNum);
+      }
+    }
+  </script>
+</body>
+</html>
