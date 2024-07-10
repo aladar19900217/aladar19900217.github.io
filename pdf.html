@@ -3,79 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turn.js + PDF.js Example</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.0.2/turn.min.css">
+  <title>Display PDF from GitHub</title>
+  <!-- 引入 PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.211/pdf.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
     }
-    .flipbook {
+    .pdf-container {
       width: 800px;
-      height: 500px;
       margin: 20px auto;
     }
-    .flipbook .page {
-      background: white;
+    .pdf-page {
       border: 1px solid #ccc;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      overflow: hidden;
+      margin-bottom: 10px;
+      page-break-after: always;
     }
-    .flipbook .page canvas {
-      width: 100%;
-      height: 100%;
+    .pdf-page canvas {
+      display: block;
+      margin: auto;
+      border: 1px solid black;
     }
   </style>
 </head>
 <body>
-  <h1 style="text-align: center;">Turn.js + PDF.js Example</h1>
-  <div class="flipbook" id="pdf-viewer">
-    <!-- Pages will be dynamically added here by Turn.js -->
+  <h1 style="text-align: center;">Display PDF from GitHub</h1>
+  <div class="pdf-container" id="pdf-viewer">
+    <!-- PDF 页面将会动态加载在这里 -->
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.0.2/turn.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.211/pdf.min.js"></script>
   <script>
-    // 等待文档加载完毕
-    $(document).ready(function() {
-      var flipbook = $('.flipbook');
+    // 在这里加载和显示 PDF 文件
+    document.addEventListener('DOMContentLoaded', function() {
+      var pdfUrl = 'https://aladar19900217.github.io/example.pdf';
 
-      // 加载 PDF 文件
-      pdfjsLib.getDocument('example.pdf').promise.then(function(pdf) {
-        var totalPages = pdf.numPages;
+      // 使用 PDF.js 加载 PDF 文件
+      pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
+        var pdfContainer = document.getElementById('pdf-viewer');
 
-        // 循环添加每一页到翻书容器
-        for (var pageNum = 1; pageNum <= totalPages; pageNum++) {
-          var pageElement = $('<div class="page"></div>');
-          flipbook.append(pageElement);
-
-          // 渲染 PDF 页面到 Canvas
+        // 循环加载每一页
+        for (var pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
           pdf.getPage(pageNum).then(function(page) {
-            var viewport = page.getViewport({ scale: 1.5 });
+            var scale = 1.5;
+            var viewport = page.getViewport({ scale: scale });
+
+            // 创建一个 div 元素作为每一页的容器
+            var pageContainer = document.createElement('div');
+            pageContainer.className = 'pdf-page';
+            pdfContainer.appendChild(pageContainer);
+
+            // 创建一个 canvas 元素来渲染 PDF 内容
             var canvas = document.createElement('canvas');
             var context = canvas.getContext('2d');
-            canvas.width = viewport.width;
             canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            pageContainer.appendChild(canvas);
+
+            // 将 PDF 页面渲染到 canvas 上
             var renderContext = {
               canvasContext: context,
               viewport: viewport
             };
-            page.render(renderContext).promise.then(function() {
-              pageElement.append(canvas);
-            });
+            page.render(renderContext);
           });
         }
-
-        // 初始化 Turn.js
-        flipbook.turn({
-          width: 800,
-          height: 500,
-          autoCenter: true
-        });
       });
     });
   </script>
 </body>
 </html>
-
