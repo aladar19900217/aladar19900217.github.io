@@ -36,7 +36,7 @@
   <script>
     // 在这里加载和显示 PDF 文件
     document.addEventListener('DOMContentLoaded', function() {
-      var pdfUrl = 'https://aladar19900217.github.io/example.pdf';
+      var pdfUrl = 'example.pdf'; // PDF 文件位于同一仓库中
 
       // 使用 PDF.js 加载 PDF 文件
       pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
