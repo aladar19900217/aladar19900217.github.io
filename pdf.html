@@ -15,39 +15,21 @@
       overflow: hidden; /* 隱藏頁面外部區域 */
     }
     #flipbook {
-      width: 100vw;
-      height: 100vh;
-    }
-    .page {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-    canvas {
-      display: block;
-      margin: auto;
+      width: 800px;
+      height: 600px;
+      margin: 0 auto;
     }
   </style>
 </head>
 <body>
   <h1>我的 PDF 翻書效果</h1>
-  <!-- 翻書容器 -->
-  <div id="flipbook">
-    <!-- PDF 页面将通过 JavaScript 动态添加 -->
-  </div>
+  <!-- 翻书容器 -->
+  <div id="flipbook"></div>
 
   <!-- 引入 Turn.js 的 JavaScript 文件 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.0.2/turn.min.js"></script>
   <script>
-    // 初始化 Turn.js
-    $('#flipbook').turn({
-      width: '100vw',
-      height: '100vh',
-      autoCenter: true, // 自動居中
-      display: 'single' // 單頁顯示
-    });
-
-    // PDF.js 加載和渲染
+    // PDF.js 加载和渲染
     const url = 'example.pdf'; // 替換為您的 PDF 文件路徑
     let pdfDoc = null;
     let pageNum = 1;
@@ -119,4 +101,3 @@
   </script>
 </body>
 </html>
-
