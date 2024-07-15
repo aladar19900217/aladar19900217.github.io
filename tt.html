@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
+    <!-- 引用 jQuery 庫 -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header_section {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed; /* 將導航欄固定在屏幕頂部 */
+            width: 100%;
+            top: 0; /* 與屏幕頂部對齊 */
+            z-index: 1000; /* 確保在其他內容的上方 */
+        }
+
+        .header_section a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 20px;
+            margin-top: 106px; /* 避免內容被導航欄遮擋 */
+        }
+
+        /* 使頂部固定位置的示例頁面樣式 */
+    </style>
+</head>
+<body>
+    <!-- 固定頂端導航欄 -->
+    <div class="header_section">
+        <a href="#section1">Section 1</a>
+        <a href="#section2">Section 2</a>
+        <a href="#section3">Section 3</a>
+    </div>
+
+    <!-- 內容區域 -->
+    <div class="content">
+        <div id="section1">
+            <h2>Section 1</h2>
+            <p>Content of Section 1...</p>
+        </div>
+        <div id="section2" style="margin-top: 500px;">
+            <h2>Section 2</h2>
+            <p>Content of Section 2...</p>
+        </div>
+        <div id="section3" style="margin-top: 500px;">
+            <h2>Section 3</h2>
+            <p>Content of Section 3...</p>
+        </div>
+    </div>
+
+    <!-- jQuery 代碼 -->
+    <script>
+        jQuery(document).ready(function() {
+            var headerHeight = 106; // 固定頂端元素的高度
+
+            function scrollToHash(hash) {
+                var targetElement = jQuery(hash);
+                if (targetElement.length) {
+                    var offset = targetElement.offset().top - headerHeight; // 減去固定頂端元素的高度
+                    jQuery('html, body').animate({scrollTop: offset}, 300);
+                }
+            }
+
+            // 自動滾動到 URL 包含的錨點位置
+            if (window.location.hash) {
+                scrollToHash(window.location.hash);
+            }
+
+            // 為超連結添加點擊事件處理程序
+            jQuery('.header_section a').on('click', function(e) {
+                var targetId = jQuery(this).attr('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    scrollToHash(targetId);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
