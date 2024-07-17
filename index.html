@@ -1390,8 +1390,37 @@ max-width: 50%;
                 <span>
                   信箱  aladar19900217@gmail.com
                 </span>
+              </a> 
+			  <a href="https://aladar19900217.github.io/">
+               <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                <span>
+                  官網  https://aladar19900217.github.io/
+                </span>
               </a>
+			  <div class="footer_social">
+             <!--<a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>-->
+			  <button onclick="openImagePopup2()"><!--<i class="fa-brands fa-line" aria-hidden="true"></i>--><div class="image-container">
+      <img src="images/webQR.png" alt="官網QR">
+    </div></button><!-- <a href=""> 
+                
+              </a>-->
             </div>
+            </div>
+			
           </div>
         </div>
         <div class="col-md-4 footer-col">
@@ -1482,6 +1511,16 @@ max-width: 50%;
 
       // 打開新的彈出視窗並顯示線上圖片
       window.open(imageUrl, '_blank', windowFeatures);
+    }
+  </script>
+    <script>
+    function openImagePopup2() {
+      // 線上圖片的 URL
+      var imagePath = 'images/webQR.png';
+      var windowFeatures = 'width=500,height=500'; // 視窗大小可以根據需求調整
+
+      // 打開新的彈出視窗並顯示線上圖片
+      window.open(imagePath, '_blank', windowFeatures);
     }
   </script>
  <script>
