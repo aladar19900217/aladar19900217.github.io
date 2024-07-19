@@ -167,35 +167,139 @@ max-width: 50%;
     flex-direction: column; /* 垂直排列 */
   }
 
-  #postTitle {
+  #newsTitle {
     padding-bottom: 10px;
   }
 
-  #postTitle h3 {
+  #newsTitle h3 {
     margin-top: 0;
   }
 
-  #postContent {
+  #newsContent {
     background-color: rgba(255, 255, 255, 0); /* 設置背景為透明 */
     padding: 10px;
     margin-top: 10px;
 	 width: 100%; /* 調整容器寬度 */
     max-width: 100%; /* 最大寬度 */
-    max-height: 200px; /* 內容區域最大高度 */
+    max-height: 250px; /* 內容區域最大高度 */
     overflow-y: scroll; /* 啟用垂直滾動條 */
     overflow-x: scroll; /* 隱藏水平滾動條 */
   }
 
-  #postContent::-webkit-scrollbar {
+  #newsContent::-webkit-scrollbar {
     display: none; /* 隱藏滾動條 */
   }
 
-  #postContent a {
+  #newsContent a {
     color: #007bff;
     text-decoration: none;
   }
 
-  #postContent a:hover {
+  #newsContent a:hover {
+    text-decoration: underline;
+  }
+</style>
+	<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+#latestBlogPost2 {
+    width: 100%; /* 設置為全寬 */
+    max-width: 800px; /* 最大寬度 */
+    height: 100%; /* 設置為全高 */
+    max-height: 100vh; /* 最大高度設置為視口高度 */
+    margin: 0; /* 去除外邊距 */
+    padding: 20px;
+    box-sizing: border-box; /* 包括內邊距和邊框在內的寬高計算 */
+    background-color: rgba(255, 255, 255, 0); /* 背景顏色與透明度 */
+    overflow: hidden; /* 隱藏超出容器的內容 */
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+  }
+
+  #specificTitle2 {
+    padding-bottom: 10px;
+  }
+
+  #specificTitle2 h3 {
+    margin-top: 0;
+  }
+
+  #specificContent2 {
+    background-color: rgba(255, 255, 255, 0); /* 設置背景為透明 */
+    padding: 10px;
+    margin-top: 10px;
+	 width: 100%; /* 調整容器寬度 */
+    max-width: 100%; /* 最大寬度 */
+    max-height: 250px; /* 內容區域最大高度 */
+    overflow-y: scroll; /* 啟用垂直滾動條 */
+    overflow-x: scroll; /* 隱藏水平滾動條 */
+  }
+
+  #specificContent2::-webkit-scrollbar {
+    display: none; /* 隱藏滾動條 */
+  }
+
+  #specificContent2 a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  #specificContent2 a:hover {
+    text-decoration: underline;
+  }
+</style>
+	<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+#latestBlogPost3 {
+    width: 100%; /* 設置為全寬 */
+    max-width: 800px; /* 最大寬度 */
+    height: 100%; /* 設置為全高 */
+    max-height: 100vh; /* 最大高度設置為視口高度 */
+    margin: 0; /* 去除外邊距 */
+    padding: 20px;
+    box-sizing: border-box; /* 包括內邊距和邊框在內的寬高計算 */
+    background-color: rgba(255, 255, 255, 0); /* 背景顏色與透明度 */
+    overflow: hidden; /* 隱藏超出容器的內容 */
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+  }
+
+  #specificTitle3 {
+    padding-bottom: 10px;
+  }
+
+  #specificTitle3 h3 {
+    margin-top: 0;
+  }
+
+  #specificContent3 {
+    background-color: rgba(255, 255, 255, 0); /* 設置背景為透明 */
+    padding: 10px;
+    margin-top: 10px;
+	 width: 100%; /* 調整容器寬度 */
+    max-width: 100%; /* 最大寬度 */
+    max-height: 250px; /* 內容區域最大高度 */
+    overflow-y: scroll; /* 啟用垂直滾動條 */
+    overflow-x: scroll; /* 隱藏水平滾動條 */
+  }
+
+  #specificContent3::-webkit-scrollbar {
+    display: none; /* 隱藏滾動條 */
+  }
+
+  #specificContent3 a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  #specificContent3 a:hover {
     text-decoration: underline;
   }
 </style>
@@ -318,22 +422,17 @@ max-width: 50%;
           <div class="carousel-item active">
             <div class="container ">
               <div class="row">
+			 
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
-				  <div class="bordered-text">
-                    <h1>
-                      最新消息
-                    </h1>
-                    <div id="latestBlogPost">
-   <div id="postTitle"></div>
-  <div id="postContent"></div>
+				  
+				   <div class="bordered-text">
+				   <h1 id="newsTitle"></h1>
+                     <div id="latestBlogPos2">
+   <div id="newsContent"></div>
 </div>
 					</div>
-                    <div class="btn-box">
-                      <!--<a href="" class="btn1">
-                        Order Now
-                      </a>-->
-                    </div>
+
                   </div>
                 </div>
               </div>
@@ -344,17 +443,16 @@ max-width: 50%;
               <div class="row">
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
-				  <div class="bordered-text">
+<div class="bordered-text">
                     <h1>
-                      資訊2
+                     <div id="specificTitle2"></div>
                     </h1>
-                    <p>內容2</p>
+                    <div id="latestBlogPos2">
+   
+  <div id="specificContent2"></div>
+</div>
 					</div>
-                    <div class="btn-box">
-                      <!--<a href="" class="btn1">
-                        Order Now
-                      </a>-->
-                    </div>
+
                   </div>
                 </div>
               </div>
@@ -365,30 +463,29 @@ max-width: 50%;
               <div class="row">
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
-				  <div class="bordered-text">
+<div class="bordered-text">
                     <h1>
-                     資訊3
+                      <div id="specificTitle3"></div>
                     </h1>
-                    <p>內容3</p>
+                    <div id="latestBlogPost3">
+  
+  <div id="specificContent3"></div>
+</div>
 					</div>
-                    <div class="btn-box">
-                      <!--<a href="" class="btn1">
-                        Order Now
-                      </a>-->
-                    </div>
+ 
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="container">
+        <!--<div class="container">
           <ol class="carousel-indicators">
             <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
             <li data-target="#customCarousel1" data-slide-to="1"></li>
             <li data-target="#customCarousel1" data-slide-to="2"></li>
           </ol>
-        </div>
+        </div>-->
       </div>
 
     </section>
@@ -1635,40 +1732,74 @@ max-width: 50%;
     }
   </script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const blogId = '7321352614372128724'; // 替換為你的 Blogger 部落格的 ID
-  const apiKey = 'AIzaSyBcdOAndt3T7bF8FDFI22ArMSuSQzcXIzQ'; // 替換為你的 Google Cloud API 金鑰
+    document.addEventListener('DOMContentLoaded', function() {
+        const blogId = '7321352614372128724'; // 替换为你的 Blogger 部落格的 ID
+        const apiKey = 'AIzaSyBcdOAndt3T7bF8FDFI22ArMSuSQzcXIzQ'; // 替换为你的 Google Cloud API 密钥
 
-  // Blogger API endpoint
-  const apiUrl = `https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts`;
+        // 要显示的特定文章ID
+        const specificPostIds = [
+            '5934904779626197716', // 第二张幻灯片的文章 ID
+            '1126117996620924082'  // 第三张幻灯片的文章 ID
+        ];
 
-  // Fetch latest blog post
-  fetch(`${apiUrl}?key=${apiKey}&fetchBodies=true&maxResults=1`) // 將 fetchBodies 設置為 true 來獲取文章內容
-    .then(response => response.json())
-    .then(data => {
-      console.log(data); // 查看返回的數據，這樣可以了解是否正確獲取到了文章信息
+        // Blogger API endpoint
+        const apiUrl = `https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts`;
 
-      if (data.items && data.items.length > 0) {
-        const latestPost = data.items[0];
-        const title = latestPost.title;
-        const content = latestPost.content;
-        const url = latestPost.url;
+        // Fetch latest blog post
+        fetch(`${apiUrl}?key=${apiKey}&fetchBodies=true&maxResults=1`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.items && data.items.length > 0) {
+                    const latestPost = data.items[0];
+                    const title = latestPost.title;
+                    const content = latestPost.content;
+                    const url = latestPost.url;
 
-        // 將文章標題和內容插入到對應的 div 中
-        const postTitle = document.getElementById('postTitle');
-        const postContent = document.getElementById('postContent');
+                    // Display title without hyperlink
+                    document.getElementById('newsTitle').textContent = title;
+                    document.getElementById('newsTitle').style.textDecoration = 'none'; // Remove underline
+                    document.getElementById('newsTitle').style.fontWeight = 'normal'; // Remove bold
+                    document.getElementById('newsTitle').style.backgroundColor = 'transparent'; // Remove background color
+                    document.getElementById('newsTitle').style.border = 'none'; // Remove border
 
-        postTitle.innerHTML = `<h3><a  target="_blank">${title}</a></h3>`;
-        postContent.innerHTML = content;
-      } else {
-        document.getElementById('latestBlogPost').innerHTML = '<p>沒有找到最新的部落格文章。</p>';
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching latest blog post:', error);
-      document.getElementById('latestBlogPost').innerHTML = '<p>無法加載部落格內容。</p>';
+                    // Display content
+                    document.getElementById('newsContent').innerHTML = content;
+                } else {
+                    document.getElementById('newsTitle').textContent = 'No latest article found';
+                    document.getElementById('newsContent').textContent = 'Unable to load latest blog post.';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching latest blog post:', error);
+                document.getElementById('newsTitle').textContent = 'Error';
+                document.getElementById('newsContent').textContent = 'An error occurred while fetching the latest article.';
+            });
+
+        // Fetch and display specific blog posts
+        specificPostIds.forEach((postId, index) => {
+            fetch(`${apiUrl}/${postId}?key=${apiKey}&fetchBodies=true`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        const title = data.title;
+                        const content = data.content;
+                        const titleElement = document.getElementById(`specificTitle${index + 2}`);
+                        const contentElement = document.getElementById(`specificContent${index + 2}`);
+
+                        titleElement.innerHTML = title;
+                        contentElement.innerHTML = content;
+                    } else {
+                        document.getElementById(`specificTitle${index + 2}`).innerHTML = 'Article Not Found';
+                        document.getElementById(`specificContent${index + 2}`).innerHTML = 'The content for this article could not be found.';
+                    }
+                })
+                .catch(error => {
+                    console.error(`Error fetching post ${postId}:`, error);
+                    document.getElementById(`specificTitle${index + 2}`).innerHTML = 'Error';
+                    document.getElementById(`specificContent${index + 2}`).innerHTML = 'An error occurred while fetching this article.';
+                });
+        });
     });
-});
 </script>
   
 </body>
