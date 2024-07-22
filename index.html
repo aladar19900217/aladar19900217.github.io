@@ -179,6 +179,33 @@ max-width: 50%;
     margin-top: 0;
   }
 
+ /* 小型設備 */
+    @media only screen and (max-width: 600px) {
+        .newsContent 
+	{
+            max-height: 200px; /* 小型設備最大高度為100像素 */
+        }
+    }
+
+    /* 中型設備 */
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+        .newsContent  {
+            max-height: 200px; /* 中型設備最大高度為200像素 */
+        }
+    }
+
+    /* 大型設備 */
+    @media only screen and (min-width: 1025px) {
+        .newsContent  {
+            max-height: 500px; /* 大型設備最大高度為400像素 */
+        }
+    }
+
+        .newsContent {
+        overflow-y: auto; /* 如果內容超出最大高度，則顯示滾動條 */
+        border: 0px solid #ccc;
+        padding: 10px;
+    }
   #newsContent
  
   {
@@ -187,10 +214,37 @@ max-width: 50%;
     margin-top: 10px;
 	 width: 100%; /* 調整容器寬度 */
     max-width: 100%; /* 最大寬度 */
-    max-height: 250px; /* 內容區域最大高度 */
+
     overflow-y: scroll; /* 啟用垂直滾動條 */
     overflow-x: scroll; /* 隱藏水平滾動條 */
   }
+   /* 小型設備 */
+    @media only screen and (max-width: 600px) {
+        .specificContent2 
+	{
+            max-height: 200px; /* 小型設備最大高度為100像素 */
+        }
+    }
+
+    /* 中型設備 */
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+        .specificContent2  {
+            max-height: 200px; /* 中型設備最大高度為200像素 */
+        }
+    }
+
+    /* 大型設備 */
+    @media only screen and (min-width: 1025px) {
+        .specificContent2  {
+            max-height: 500px; /* 大型設備最大高度為400像素 */
+        }
+    }
+
+        .specificContent2 {
+        overflow-y: auto; /* 如果內容超出最大高度，則顯示滾動條 */
+        border: 0px solid #ccc;
+        padding: 10px;
+    }
     #specificContent2
  
   {
@@ -199,10 +253,37 @@ max-width: 50%;
     margin-top: 10px;
 	 width: 100%; /* 調整容器寬度 */
     max-width: 100%; /* 最大寬度 */
-    max-height: 250px; /* 內容區域最大高度 */
+
     overflow-y: scroll; /* 啟用垂直滾動條 */
     overflow-x: scroll; /* 隱藏水平滾動條 */
   }
+   /* 小型設備 */
+    @media only screen and (max-width: 600px) {
+        .specificContent3
+	{
+            max-height: 200px; /* 小型設備最大高度為100像素 */
+        }
+    }
+
+    /* 中型設備 */
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+        .specificContent3  {
+            max-height: 200px; /* 中型設備最大高度為200像素 */
+        }
+    }
+
+    /* 大型設備 */
+    @media only screen and (min-width: 1025px) {
+        .specificContent3  {
+            max-height: 500px; /* 大型設備最大高度為400像素 */
+        }
+    }
+
+        .specificContent3 {
+        overflow-y: auto; /* 如果內容超出最大高度，則顯示滾動條 */
+        border: 0px solid #ccc;
+        padding: 10px;
+    }
     #specificContent3
  
   {
@@ -211,7 +292,7 @@ max-width: 50%;
     margin-top: 10px;
 	 width: 100%; /* 調整容器寬度 */
     max-width: 100%; /* 最大寬度 */
-    max-height: 250px; /* 內容區域最大高度 */
+
     overflow-y: scroll; /* 啟用垂直滾動條 */
     overflow-x: scroll; /* 隱藏水平滾動條 */
   }
@@ -242,6 +323,8 @@ max-width: 50%;
     text-decoration: underline;
   }
 </style>
+
+
 	
 
 </head>
@@ -380,7 +463,7 @@ max-width: 50%;
                 <div class="bordered-text">
                   <h1 id="newsTitle"></h1>
                   <div id="latestBlogPos2">
-                    <div id="newsContent"></div>
+                    <div id="newsContent" class="newsContent"></div>
                   </div>
                 </div>
               </div>
@@ -398,7 +481,7 @@ max-width: 50%;
                     <div id="specificTitle2"></div>
                   </h1>
                   <div id="latestBlogPos2">
-                    <div id="specificContent2"></div>
+                    <div id="specificContent2" class="specificContent2"></div>
                   </div>
                 </div>
               </div>
@@ -416,7 +499,7 @@ max-width: 50%;
                     <div id="specificTitle3"></div>
                   </h1>
                   <div id="latestBlogPost3">
-                    <div id="specificContent3"></div>
+                    <div id="specificContent3" class="specificContent3"></div>
                   </div>
                 </div>
               </div>
