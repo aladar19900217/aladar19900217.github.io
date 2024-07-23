@@ -471,7 +471,7 @@ max-width: 50%;
                 <a class="nav-link" data-toggle href="#product_section" onclick="smoothScroll('#product_section')">產品目錄</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle href="#about_sectio" onclick="smoothScroll('#about_section')">公司介紹</a>
+                <a class="nav-link" data-toggle href="#about_section" onclick="smoothScroll('#about_section')">公司介紹</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-toggle  href="#contact_section" onclick="smoothScroll('#contact_section')">聯絡資訊</a>
@@ -1004,19 +1004,33 @@ max-width: 50%;
   </script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    // 定義平滑滾動的函數
-    function smoothScroll(target) {
-      var targetElement = document.querySelector(target);
-      if (targetElement) {
-        // 計算要滾動的位置
-        var targetOffset = targetElement.offsetTop;
-        // 使用 window.scrollTo 方法實現平滑滾動效果
-        window.scrollTo({
-          top: targetOffset,
-          behavior: 'smooth'
-        });
-      }
+function smoothScrollTo(targetPosition, duration) {
+  const start = window.pageYOffset;
+  const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+
+  function scrollAnimation(currentTime) {
+    const elapsedTime = currentTime - startTime;
+    const newPosition = easeInOutCubic(elapsedTime, start, targetPosition - start, duration);
+    window.scrollTo(0, newPosition);
+    if (elapsedTime < duration) {
+      requestAnimationFrame(scrollAnimation);
+    } else {
+      window.scrollTo(0, targetPosition);
     }
+  }
+
+  function easeInOutCubic(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t * t + b;
+    t -= 2;
+    return c / 2 * (t * t * t + 2) + b;
+  }
+
+  requestAnimationFrame(scrollAnimation);
+}
+
+// 使用示例
+smoothScrollTo(0, 3000); // 滚动到页面顶部，持续时间为1秒（1000毫秒）
   </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
