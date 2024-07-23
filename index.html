@@ -456,25 +456,25 @@ max-width: 50%;
           </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
+  <span class="navbar-toggler-icon"></span>
+</button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="#home_section" onclick="smoothScroll('#home_section')">首頁 <span class="sr-only">(current)</span></a>
+                <a class="nav-link" data-toggle href="#home_section" onclick="smoothScroll('#home_section')">首頁 <span class="sr-only">(current)</span></a>
               </li>
 			   <li class="nav-item">
-                <a class="nav-link" href="#service" onclick="smoothScroll('#service')">服務項目 <span class="sr-only">(current)</span></a>
+                <a class="nav-link"  data-toggle href="#service" onclick="smoothScroll('#service')">服務項目 <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#product_section" onclick="smoothScroll('#product_section')">產品目錄</a>
+                <a class="nav-link" data-toggle href="#product_section" onclick="smoothScroll('#product_section')">產品目錄</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about_sectio" onclick="smoothScroll('#about_section')">公司介紹</a>
+                <a class="nav-link" data-toggle href="#about_sectio" onclick="smoothScroll('#about_section')">公司介紹</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#contact_section" onclick="smoothScroll('#contact_section')">聯絡資訊</a>
+                <a class="nav-link" data-toggle  href="#contact_section" onclick="smoothScroll('#contact_section')">聯絡資訊</a>
               </li>
             </ul>
 
@@ -1087,6 +1087,20 @@ max-width: 50%;
                 });
         });
     });
+</script>
+
+<script>
+const dataToggle = document.querySelectorAll('[data-toggle]');
+const menuToggle = document.getElementById('navbarSupportedContent');
+const bsCollapse = new bootstrap.Collapse(menuToggle, {
+  toggle: false
+});
+
+dataToggle.forEach((item) => {
+  item.addEventListener('click', () => {
+    bsCollapse.toggle()
+  })
+});
 </script>
   
 </body>
