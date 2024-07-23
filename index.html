@@ -1104,16 +1104,20 @@ smoothScrollTo(0, 3000); // 滚动到页面顶部，持续时间为1秒（1000�
 </script>
 
 <script>
-const dataToggle = document.querySelectorAll('[data-toggle]');
-const menuToggle = document.getElementById('navbarSupportedContent');
-const bsCollapse = new bootstrap.Collapse(menuToggle, {
-  toggle: false
-});
+document.addEventListener('DOMContentLoaded', function () {
+  // 获取 Navbar 的 Collapse 实例
+  var menuToggle = document.getElementById('navbarSupportedContent');
+  var bsCollapse = new bootstrap.Collapse(menuToggle, {
+    toggle: false // 设置为 false 可以阻止自动收合
+  });
 
-dataToggle.forEach((item) => {
-  item.addEventListener('click', () => {
-    bsCollapse.toggle()
-  })
+  // 监听导航链接的点击事件
+  var navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(function(navLink) {
+    navLink.addEventListener('click', function() {
+      bsCollapse.hide(); // 手动关闭 Navbar
+    });
+  });
 });
 </script>
   
