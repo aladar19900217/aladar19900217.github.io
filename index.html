@@ -11,7 +11,6 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  
   <link rel="shortcut icon" href="images/android-chrome-512x512.png" type="">
 
   <title> 公司名 </title>
@@ -30,52 +29,7 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-   <style>
-/* Reset default styles */
-body, html {
-  margin: 0;
-  padding: 0;
-}
-
-.loader-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #fff; /* 设置一个合适的背景颜色 */
-  position: fixed; /* 固定位置 */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999; /* 设置较高的层级 */
-}
-
-.loader {
-  text-align: center;
-  opacity: 0; /* 初始时隐藏 */
-  transition: opacity 1s ease-in-out; /* 添加过渡效果 */
-}
-
-.loader img {
-  width: 100px; /* 调整大小 */
-}
-
-.loading-text {
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-.content {
-  opacity: 0; /* 初始内容隐藏 */
-  transition: opacity 1s ease-in-out;
-}
-
-.content.visible {
-  opacity: 1; /* 显示内容 */
-}
-</style>
-	
+   
 
  <style>
  
@@ -481,32 +435,25 @@ max-width: 50%;
 }
 </style>
 
+	
 
 </head>
 
 <body>
-<div class="loader-wrapper">
-  <div class="loader">
-    <img src="images/android-chrome-512x512.png" alt="Logo">
-    <div class="loading-text"></div>
-  </div>
-</div>
-
+ 
  <div id="heading_container" class="heading_center">
+        固定頂端元素
  </div>
   <div class="hero_area">
- 
     <div class="bg-box">
       <img src="images/furniture01.jpg" alt="">
     </div>
     
 	<!-- header section strats -->
     <header class="header_section">
-	
-	
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="" >
+          <a class="navbar-brand" href="index.html" >
             <span>
               公司名
             </span>
@@ -539,14 +486,12 @@ max-width: 50%;
         </nav>
       </div>
     </header>
-	
-	
     <!-- end header section -->
     <!-- slider section -->
 	
 	<div id="home_section"></div>
 
-<section class="slider_section">
+    <section class="slider_section">
   <div id="customCarousel1" class="carousel slide" data-ride="carousel">
     <!-- 控制按鈕移到每個幻燈片的內容之前 -->
     <div class="container">
@@ -618,8 +563,7 @@ max-width: 50%;
 
     <!-- end slider section -->
   </div>
-
-
+</div>
 
   <!-- offer section -->
 
@@ -975,7 +919,6 @@ max-width: 50%;
   </footer>
   <!-- footer section -->
   <!-- 引入 jQuery -->
-
   <!--fontawesome-->
   <script src="https://kit.fontawesome.com/e03c2dd1da.js" crossorigin="anonymous"></script>
   <!-- jQery -->
@@ -989,7 +932,7 @@ max-width: 50%;
   <!-- isotope js -->
   <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
   <!-- nice select -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
   <script src="js/custom.js"></script>
   <!-- Google Map -->
@@ -1174,38 +1117,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-<script>
-// 在页面加载完成时显示加载动画
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelector(".loader").style.opacity = "1";
-  
-  setTimeout(function() {
-    document.querySelector(".loader").style.opacity = "0";
-    
-    setTimeout(function() {
-      document.querySelector(".loader-wrapper").style.display = "none";
-      document.querySelector("#content").classList.remove("hidden");
-      document.querySelector("#content").classList.add("visible");
-    }, 1000); // Adjust timing to match your CSS transition duration
-  }, 2000); // Adjust timing to simulate loading time
-});
-
-// 在窗口完全加载时显示加载动画
-window.addEventListener("load", function() {
-  document.querySelector(".loader").style.opacity = "1";
-  
-  setTimeout(function() {
-    document.querySelector(".loader").style.opacity = "0";
-    
-    setTimeout(function() {
-      document.querySelector(".loader-wrapper").style.display = "none";
-      document.querySelector("#content").classList.remove("hidden");
-      document.querySelector("#content").classList.add("visible");
-    }, 1000); // Adjust timing to match your CSS transition duration
-  }, 2000); // Adjust timing to simulate loading time
-});
-</script>
-
 </body>
 
 </html>
