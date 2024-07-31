@@ -26,7 +26,7 @@ body, html {
 }
 
 .loader img {
-  width: 450px; /* 调整大小 */
+  width: 300px; /* 调整大小 */
 }
 
 .loading-text {
