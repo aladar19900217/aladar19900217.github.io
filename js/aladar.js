@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
       document.querySelector("#contentlogo").classList.remove("hidden");
       document.querySelector("#contentlogo").classList.add("visible");
     }, 2000); // Adjust timing to match your CSS transition duration
-  }, 1000); // Adjust timing to simulate loading time
+  }, 2000); // Adjust timing to simulate loading time
 });
 
 // 在窗口完全加载时显示加载动画
@@ -196,7 +196,7 @@ window.addEventListener("load", function() {
       document.querySelector(".loader-wrapper").style.display = "none";
       document.querySelector("#contentlogo").classList.remove("hidden");
       document.querySelector("#contentlogo").classList.add("visible");
-    }, 1000); // Adjust timing to match your CSS transition duration
+    }, 2000); // Adjust timing to match your CSS transition duration
   }, 2000); // Adjust timing to simulate loading time
 });
 ////////////////////////////
