@@ -4,29 +4,33 @@ body, html {
   margin: 0;
   padding: 0;
 }
-
+/*
 .loader-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #fff; /* 设置一个合适的背景颜色 */
-  position: fixed; /* 固定位置 */
-  top: 0;
+  /*position: fixed; /* 固定位置 */
+  /*top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 9999; /* 设置较高的层级 */
-}
+/*}*/
 
-.loader {
+
+
+
+/*.loader {
   text-align: center;
   opacity: 0; /* 初始时隐藏 */
-  transition: opacity 1s ease-in-out; /* 添加过渡效果 */
-}
+  /*transition: opacity 1s ease-in-out; /* 添加过渡效果 */
+/*}*/
 
-.loader img {
-  width: 300px; /* 调整大小 */
+/* 通用样式 */
+/*.loader img {
+width: 300px; 
 }
 
 .loading-text {
@@ -36,14 +40,12 @@ body, html {
 
 .contentlogo {
   opacity: 0; /* 初始内容隐藏 */
-  transition: opacity 1s ease-in-out;
+  /*transition: opacity 1s ease-in-out;
 }
 
 .contentlogo.visible {
   opacity: 1; /* 显示内容 */
-}
-
-	
+/*}*/
 
 
  
