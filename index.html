@@ -31,14 +31,49 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
   <link href="css/aladar.css" rel="stylesheet" />
+<style>
+      body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* 初始状态防止滚动条出现 */
+    background: #fff; /* 背景色 */
+    transition: overflow 0s 3s; /* 设置 overflow 在 3 秒后改变 */
+}
 
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 居中对齐 */
+    opacity: 0; /* 初始状态设为透明 */
+    transition: opacity 1s ease-in-out; /* 设置过渡效果 */
+    z-index: 9999;
+    width: 200px; /* 根据需要调整宽度 */
+    height: 200px; /* 根据需要调整高度 */
+}
+
+#logo img {
+    width: 100%; /* 确保图片填充 #logo 容器 */
+    height: auto; /* 保持图片比例 */
+}
+
+#contentlogo {
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* 设置过渡效果 */
+    visibility: hidden; /* 初始状态设为隐藏 */
+}
+
+</style>
 </head>
 
 <body>
-<div class="loader-wrapper">
-  <div class="loader">
-    <img src="images/aladar.png" alt="Logo">
-    <div class="loading-text"></div>
+<!--<div class="loader-wrapper" id="logo">-->
+<div id="logo">
+  <!-- <div class="loader" > -->
+    <img src="images/aladar.png" alt="logo" >
   </div>
 </div>
 <div id="contentlogo" class="contentlogo hidden">
@@ -548,7 +583,39 @@
   <!-- End Google Map -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="js/aladar.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const logo = document.getElementById('logo');
+            const content = document.getElementById('contentlogo');
+            const body = document.body;
 
+            // 1秒后淡入 logo
+            setTimeout(() => {
+                logo.style.opacity = '1';
+                
+                // 1秒后开始淡出 logo
+                setTimeout(() => {
+                    logo.style.opacity = '0';
+                    
+                    // 在 logo 完全淡出后显示内容
+                    setTimeout(() => {
+                        logo.style.display = 'none'; // 隐藏 logo
+                        content.style.visibility = 'visible'; // 显示内容
+                        content.style.opacity = '1'; // 淡入内容
+                        body.style.overflow = 'auto'; // 3秒后允许滚动
+                    }, 1250); // 这里的时间要和 logo 的淡出时间一致
+                }, 1000); // 这里的时间是 logo 淡入后的持续时间
+            }, 750); // 这里的时间是初始等待时间
+
+            // 3秒后显示滚动条
+            setTimeout(() => {
+                body.style.overflow = 'auto'; // 显示滚动条
+            }, 3000); // 3秒
+        });
+    </script>
+
+
+</script>
 </body>
 
 </html>
