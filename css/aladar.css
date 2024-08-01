@@ -165,249 +165,113 @@ max-width: 50%;
     font-family: Arial, sans-serif;
     line-height: 1.6;
   }
-
+/*---------------------------------------*/
+/* 幻灯片容器样式 */
 #latestBlogPost {
-    width: 100%; /* 設置為全寬 */
-    max-width: 800px; /* 最大寬度 */
-    height: 100%; /* 設置為全高 */
-    max-height: 100vh; /* 最大高度設置為視口高度 */
-    margin: 0; /* 去除外邊距 */
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: 100vh;
+    margin: 0;
     padding: 20px;
-    box-sizing: border-box; /* 包括內邊距和邊框在內的寬高計算 */
-    background-color: rgba(255, 255, 255, 0); /* 背景顏色與透明度 */
-    overflow: hidden; /* 隱藏超出容器的內容 */
+    box-sizing: border-box;
+    background-color: transparent; /* 设置背景为透明 */
+    overflow: hidden;
     display: flex;
-    flex-direction: column; /* 垂直排列 */
-  }
+    flex-direction: column;
+}
 
-  #newsTitle
-#specificTitl2
-#specificTitl3 {
+/* 新闻标题样式 */
+#newsTitle,
+#specificTitle2,
+#specificTitle3 {
     padding-bottom: 10px;
-  }
-
-  #newsTitle
-#specificTitl2
-#specificTitl3  h3 {
-    margin-top: 0;
-  }
-<!--newsContent-->
- <!--/* 小型設備 */
-    @media only screen  and (min-width: 0px)and(max-width: 590px) {
-        .newsContent 
-	{
-            max-height: 300px; /* 小型設備最大高度為100像素 */
-        }
-    }
--->
-    /* 中型設備 */
-    @media only screen and (max-width: 992px) {
-        .newsContent  {
-            max-height: 250px; /* 中型設備最大高度為200像素 */
-        }
-    }
-
-    /* 大型設備 */
-    @media only screen and (min-width: 993px) {
-        .newsContent  {
-            max-height: 600px; /* 大型設備最大高度為400像素 */
-        }
-    }
-
-        .newsContent {
-        overflow-y: auto; /* 如果內容超出最大高度，則顯示滾動條 */
-        border: 0px solid #ccc;
-        padding: 10px;
-    }
-	   .newsTitle {
-        overflow-y: auto; /* 如果內容超出最大高度，則顯示滾動條 */
-        border: 0px solid #ccc;
-        padding: 10px;
-    }
-    #newsTitle
- 
-  {
-    background-color: rgba(255, 255, 255, 0); /* 設置背景為透明 */
+    background-color: transparent; /* 设置背景为透明 */
     padding: 10px;
     margin-top: 10px;
-	max-height: 150px;
-	 width: 100%; /* 調整容器寬度 */
-    max-width: 100%; /* 最大寬度 */
+    max-height: 150px; /* 调整最大高度 */
+    width: 100%; /* 调整容器宽度 */
+    max-width: 100%; /* 最大宽度 */
+    overflow-y: scroll; /* 启用垂直滚动条 */
+    overflow-x: hidden; /* 隐藏水平滚动条 */
+}
 
-    overflow-y: scroll; /* 啟用垂直滾動條 */
-    overflow-x: scroll; /* 隱藏水平滾動條 */
-  }
-	        
-  
-  #newsContent
- 
-  {
-    background-color: rgba(255, 255, 255, 0); /* 設置背景為透明 */
+/* 新闻内容和特定内容通用样式 */
+.newsContent,
+.specificContent2,
+.specificContent3 {
+    background-color: transparent; /* 设置背景为透明 */
     padding: 10px;
     margin-top: 10px;
-	 width: 100%; /* 調整容器寬度 */
-    max-width: 100%; /* 最大寬度 */
-    overflow-y: scroll; /* 啟用垂直滾動條 */
-    overflow-x: scroll; /* 隱藏水平滾動條 */
-  }
-  
-  <!--specificContent2-->
-  <!-- /* 小型設備 */
-    @media only screen and (max-width: 600px) {
-        .specificContent2 
-	{
-            max-height: 200px; /* 小型設備最大高度為100像素 */
-        }
-    }
--->
-    /* 中型設備 */
-    @media only screen and  (max-width: 992px) {
-        .specificContent2  {
-            max-height: 250px; /* 中型設備最大高度為200像素 */
-        }
-    }
+    width: 100%; /* 调整容器宽度 */
+    max-width: 100%; /* 最大宽度 */
+    overflow-y: auto; /* 启用垂直滚动条 */
+    overflow-x: hidden; /* 隐藏水平滚动条 */
+    border: 0 solid #ccc; /* 边框设置 */
+}
 
-    /* 大型設備 */
-    @media only screen and (min-width: 993px) {
-        .specificContent2  {
-            max-height: 600px; /* 大型設備最大高度為400像素 */
-        }
-    }
+/* 滚动条样式隐藏 */
+#newsTitle::-webkit-scrollbar,
+#specificTitle2::-webkit-scrollbar,
+#specificTitle3::-webkit-scrollbar,
+#newsContent::-webkit-scrollbar,
+.specificContent2::-webkit-scrollbar,
+.specificContent3::-webkit-scrollbar {
+    display: none;
+}
 
-        .specificContent2 {
-        overflow-y: auto; /* 如果內容超出最大高度，則顯示滾動條 */
-        border: 0px solid #ccc;
-        padding: 10px;
-    }
-	  .specificTitle2 {
-        overflow-y: auto; /* 如果內容超出最大高度，則顯示滾動條 */
-        border: 0px solid #ccc;
-        padding: 10px;
-    }
-    #specificTitle2
- 
-  {
-    background-color: rgba(255, 255, 255, 0); /* 設置背景為透明 */
-    padding: 10px;
-    margin-top: 10px;
-	max-height: 200px;
-	 width: 100%; /* 調整容器寬度 */
-    max-width: 100%; /* 最大寬度 */
-
-    overflow-y: scroll; /* 啟用垂直滾動條 */
-    overflow-x: scroll; /* 隱藏水平滾動條 */
-  }
-    #specificContent2
- 
-  {
-    background-color: rgba(255, 255, 255, 0); /* 設置背景為透明 */
-    padding: 10px;
-    margin-top: 10px;
-	 width: 100%; /* 調整容器寬度 */
-    max-width: 100%; /* 最大寬度 */
-
-    overflow-y: scroll; /* 啟用垂直滾動條 */
-    overflow-x: scroll; /* 隱藏水平滾動條 */
-  }
-  <!--specificContent3-->
-   <!--/* 小型設備 */
-    @media only screen and (max-width: 600px) {
-        .specificContent3
-	{
-            max-height: 200px; /* 小型設備最大高度為100像素 */
-        }
-    }
--->
-    /* 中型設備 */
-    @media only screen and (max-width: 992px) {
-        .specificContent3  {
-            max-height: 250px; /* 中型設備最大高度為200像素 */
-        }
-    }
-
-    /* 大型設備 */
-    @media only screen and (min-width: 993px) {
-        .specificContent3  {
-            max-height: 600px; /* 大型設備最大高度為400像素 */
-        }
-    }
-
-        .specificContent3 {
-        overflow-y: auto; /* 如果內容超出最大高度，則顯示滾動條 */
-        border: 0px solid #ccc;
-        padding: 10px;
-    }
-	  .specificTitle3 {
-        overflow-y: auto; /* 如果內容超出最大高度，則顯示滾動條 */
-        border: 0px solid #ccc;
-        padding: 10px;
-    }
-    #specificitle3
- 
-  {
-    background-color: rgba(255, 255, 255, 0); /* 設置背景為透明 */
-    padding: 10px;
-    margin-top: 10px;
-	max-height: 200px;
-	 width: 100%; /* 調整容器寬度 */
-    max-width: 100%; /* 最大寬度 */
-
-    overflow-y: scroll; /* 啟用垂直滾動條 */
-    overflow-x: scroll; /* 隱藏水平滾動條 */
-  }
-    #specificContent3
- 
-  {
-    background-color: rgba(255, 255, 255, 0); /* 設置背景為透明 */
-    padding: 10px;
-    margin-top: 10px;
-	 width: 100%; /* 調整容器寬度 */
-    max-width: 100%; /* 最大寬度 */
-
-    overflow-y: scroll; /* 啟用垂直滾動條 */
-    overflow-x: scroll; /* 隱藏水平滾動條 */
-  }
-
-  #newsTitle::-webkit-scrollbar
-  {
-    display: none; /* 隱藏滾動條 */
-  }
-  #specificTitle2::-webkit-scrollbar
-  {
-    display: none; /* 隱藏滾動條 */
-  }
-  #specificTitle3::-webkit-scrollbar
-  {
-    display: none; /* 隱藏滾動條 */
-  }
-  
-  #newsContent::-webkit-scrollbar
-  {
-    display: none; /* 隱藏滾動條 */
-  }
-    #specificContent2::-webkit-scrollbar
-  {
-    display: none; /* 隱藏滾動條 */
-  }
-    #specificContent3::-webkit-scrollbar
-  {
-    display: none; /* 隱藏滾動條 */
-  }
-
-  #newsContent
-  #specificContent2
-  #specificContent3  a {
+/* 链接样式 */
+#newsContent a,
+.specificContent2 a,
+.specificContent3 a {
     color: #007bff;
     text-decoration: none;
-  }
+}
 
-  #newsContent
-  #specificContent2
-  #specificContent3  a:hover {
+/* 链接悬停样式 */
+#newsContent a:hover,
+.specificContent2 a:hover,
+.specificContent3 a:hover {
     text-decoration: underline;
-  }
+}
+
+/* 小型设备 */
+@media only screen and (max-width: 600px) {
+    .newsContent,
+    .specificContent2,
+    .specificContent3 {
+        max-height: 200px; /* 小型设备最大高度 */
+    }
+}
+
+/* 中型设备 */
+@media only screen and (max-width: 992px) {
+    .newsContent {
+        max-height: 250px; /* 中型设备最大高度 */
+    }
+    .specificContent2 {
+        max-height: 250px; /* 中型设备最大高度 */
+    }
+    .specificContent3 {
+        max-height: 250px; /* 中型设备最大高度 */
+    }
+}
+
+/* 大型设备 */
+@media only screen and (min-width: 993px) {
+    .newsContent {
+        max-height: 600px; /* 大型设备最大高度 */
+    }
+    .specificContent2 {
+        max-height: 600px; /* 大型设备最大高度 */
+    }
+    .specificContent3 {
+        max-height: 600px; /* 大型设备最大高度 */
+    }
+}
 
 
+/*----------------------------------------*/
 
 /* 公司名樣式 */
 .slider_section {
