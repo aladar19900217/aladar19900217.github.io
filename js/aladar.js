@@ -171,11 +171,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 //////////////////////////////////////
 // 在页面加载完成时显示加载动画
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelector(".loader").style.opacity = "1";
+/*document.addEventListener("DOMContentLoaded", function() {
+ document.querySelector(".loader").style.opacity = "1";
   
-  setTimeout(function() {
-    document.querySelector(".loader").style.opacity = "0";
+ setTimeout(function() {
+  document.querySelector(".loader").style.opacity = "0";
     
     setTimeout(function() {
       document.querySelector(".loader-wrapper").style.display = "none";
@@ -198,5 +198,5 @@ window.addEventListener("load", function() {
       document.querySelector("#contentlogo").classList.add("visible");
     }, 2000); // Adjust timing to match your CSS transition duration
   }, 2000); // Adjust timing to simulate loading time
-});
+});*/
 ////////////////////////////
