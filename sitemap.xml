@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://aladar19900217.github.io/</loc>
@@ -6,6 +5,11 @@
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
-
-    <!-- 在此處添加更多 URL -->
+    <url>
+        <loc>https://aladar19900217.github.io/about</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <!-- 可以添加更多類似的 <url> 元素 -->
 </urlset>
