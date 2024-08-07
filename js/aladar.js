@@ -85,7 +85,7 @@ function smoothScrollTo(targetPosition, duration) {
 // 使用示例
 smoothScrollTo(0, 3000); // 滚动到页面顶部，持续时间为1秒（1000毫秒）
 //////////////////////////////////
-document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
         const blogId = '7321352614372128724'; // 替换为你的 Blogger 部落格的 ID
         const apiKey = 'AIzaSyBcdOAndt3T7bF8FDFI22ArMSuSQzcXIzQ'; // 替换为你的 Google Cloud API 密钥
 
