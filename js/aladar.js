@@ -196,3 +196,7 @@ window.addEventListener("load", function() {
   }, 2000); // Adjust timing to simulate loading time
 });*/
 ////////////////////////////
+.carousel-indicators .gap {
+  margin-right: 20px; /* 調整第 4 和第 5 個按鈕之間的間距 */
+}
+/////////////////////////////
