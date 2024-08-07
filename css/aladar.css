@@ -288,3 +288,7 @@ max-width: 50%;
   color: none;
   margin-bottom: 20px;
 }
+/* 調整第 4 和第 5 個按鈕之間的間距 */
+.carousel-indicators .gap {
+  margin-right: 20px; 
+}
