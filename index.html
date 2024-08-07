@@ -198,7 +198,7 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
 
   <div id="customCarousel1" class="carousel slide" data-ride="carousel">
     <div class="container">
-    <h2 id="sliderTitle" class="bordered-text">最新消息</h2>
+    <h2 id="sliderTitle" class="bordered-text" style="color: blue">最新消息</h2>
   </div>
     <!-- 控制按鈕移到每個幻燈片的內容之前 -->
     <div class="container">
@@ -846,9 +846,9 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
 
       // Update header based on the active slide
       if (currentIndex >= 0 && currentIndex <= 4) {
-        $('#sliderTitle').text('最新消息');
+        $('#sliderTitle').text('最新消息').css('color', 'blue');
       } else if (currentIndex >= 5 && currentIndex <= 9) {
-        $('#sliderTitle').text('重大資訊');
+        $('#sliderTitle').text('重大資訊').css('color', 'red');
       }
     });
   });
