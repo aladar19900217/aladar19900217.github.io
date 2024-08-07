@@ -167,7 +167,7 @@ max-width: 50%;
   }
 /*---------------------------------------*/
 /* 幻灯片容器样式 */
-#latestBlogPost {
+#latestBlogPost2 {
     width: 100%;
     max-width: 800px;
     height: 100%;
@@ -175,102 +175,84 @@ max-width: 50%;
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
-    background-color: transparent; /* 设置背景为透明 */
+    background-color: transparent; /* 可以省略 */
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
 /* 新闻标题样式 */
-#newsTitle,
-#specificTitle2,
-#specificTitle3 {
-    padding-bottom: 10px;
-    background-color: transparent; /* 设置背景为透明 */
+.newsTitle,
+.specificTitle {
     padding: 10px;
     margin-top: 10px;
     max-height: 150px; /* 调整最大高度 */
     width: 100%; /* 调整容器宽度 */
-    max-width: 100%; /* 最大宽度 */
     overflow-y: scroll; /* 启用垂直滚动条 */
     overflow-x: hidden; /* 隐藏水平滚动条 */
 }
 
 /* 新闻内容和特定内容通用样式 */
 .newsContent,
-.specificContent2,
-.specificContent3 {
-    background-color: transparent; /* 设置背景为透明 */
+.specificContent {
     padding: 10px;
     margin-top: 10px;
     width: 100%; /* 调整容器宽度 */
-    max-width: 100%; /* 最大宽度 */
     overflow-y: auto; /* 启用垂直滚动条 */
     overflow-x: hidden; /* 隐藏水平滚动条 */
     border: 0 solid #ccc; /* 边框设置 */
 }
 
-/* 滚动条样式隐藏 */
-#newsTitle::-webkit-scrollbar,
-#specificTitle2::-webkit-scrollbar,
-#specificTitle3::-webkit-scrollbar,
-#newsContent::-webkit-scrollbar,
-.specificContent2::-webkit-scrollbar,
-.specificContent3::-webkit-scrollbar {
-    display: none;
-}
-
 /* 链接样式 */
-#newsContent a,
-.specificContent2 a,
-.specificContent3 a {
+.newsContent a,
+.specificContent a {
     color: #007bff;
     text-decoration: none;
 }
 
-/* 链接悬停样式 */
-#newsContent a:hover,
-.specificContent2 a:hover,
-.specificContent3 a:hover {
+/* 链接悬停样式修正 */
+.newsContent a:hover,
+.specificContent a:hover {
     text-decoration: underline;
 }
 
-/* 小型设备 */
+/* 媒体查询 */
 @media only screen and (max-width: 600px) {
     .newsContent,
-    .specificContent2,
-    .specificContent3 {
+    .specificContent {
         max-height: 200px; /* 小型设备最大高度 */
     }
 }
 
-/* 中型设备 */
-@media only screen and (max-width: 992px) {
-    .newsContent {
-        max-height: 250px; /* 中型设备最大高度 */
-    }
-    .specificContent2 {
-        max-height: 250px; /* 中型设备最大高度 */
-    }
-    .specificContent3 {
-        max-height: 250px; /* 中型设备最大高度 */
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+    .newsContent,
+    .specificContent {
+        max-height: 200px; /* 中型设备最大高度 */
     }
 }
 
-/* 大型设备 */
 @media only screen and (min-width: 993px) {
-    .newsContent {
-        max-height: 600px; /* 大型设备最大高度 */
-    }
-    .specificContent2 {
-        max-height: 600px; /* 大型设备最大高度 */
-    }
-    .specificContent3 {
+    .newsContent,
+    .specificContent {
         max-height: 600px; /* 大型设备最大高度 */
     }
 }
 
+/* 滚动条完全隐藏（建议优化） */
+.newsTitle,
+.specificTitle,
+.newsContent,
+.specificContent {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
 
+.newsTitle::-webkit-scrollbar,
+.specificTitle::-webkit-scrollbar,
+.newsContent::-webkit-scrollbar,
+.specificContent::-webkit-scrollbar {
+    display: none; /* Webkit based browsers */
+}
 /*----------------------------------------*/
 
 /* 公司名樣式 */
