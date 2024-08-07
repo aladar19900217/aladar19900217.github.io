@@ -85,48 +85,44 @@ function smoothScrollTo(targetPosition, duration) {
 // 使用示例
 smoothScrollTo(0, 3000); // 滚动到页面顶部，持续时间为1秒（1000毫秒）
 //////////////////////////////////
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
         const blogId = '7321352614372128724'; // 替换为你的 Blogger 部落格的 ID
         const apiKey = 'AIzaSyBcdOAndt3T7bF8FDFI22ArMSuSQzcXIzQ'; // 替换为你的 Google Cloud API 密钥
 
         // 要显示的特定文章ID
         const specificPostIds = [
             '5934904779626197716', // 第二张幻灯片的文章 ID
-            '1126117996620924082'  // 第三张幻灯片的文章 ID
+            '1126117996620924082',
+'9046491119806055750',
+'4610684337527801636',
+'7958087684219691378'			// 第三张幻灯片的文章 ID
         ];
 
         // Blogger API endpoint
         const apiUrl = `https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts`;
 
         // Fetch latest blog post
-        fetch(`${apiUrl}?key=${apiKey}&fetchBodies=true&maxResults=1`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.items && data.items.length > 0) {
-                    const latestPost = data.items[0];
-                    const title = latestPost.title;
-                    const content = latestPost.content;
-                    const url = latestPost.url;
+fetch(`${apiUrl}?key=${apiKey}&fetchBodies=true&maxResults=5`)
+    .then(response => response.json())
+    .then(data => {
+        if (data.items && data.items.length > 0) {
+            data.items.forEach((post, index) => {
+                const title = post.title;
+                const content = post.content;
 
-                    // Display title without hyperlink
-                    document.getElementById('newsTitle').textContent = title;
-                    document.getElementById('newsTitle').style.textDecoration = 'none'; // Remove underline
-                    document.getElementById('newsTitle').style.fontWeight = 'normal'; // Remove bold
-                    document.getElementById('newsTitle').style.backgroundColor = 'transparent'; // Remove background color
-                    document.getElementById('newsTitle').style.border = 'none'; // Remove border
+                const titleElement = document.getElementById(`newsTitle${index + 1}`);
+                const contentElement = document.getElementById(`newsContent${index + 1}`);
 
-                    // Display content
-                    document.getElementById('newsContent').innerHTML = content;
-                } else {
-                    document.getElementById('newsTitle').textContent = 'No latest article found';
-                    document.getElementById('newsContent').textContent = 'Unable to load latest blog post.';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching latest blog post:', error);
-                document.getElementById('newsTitle').textContent = 'Error';
-                document.getElementById('newsContent').textContent = 'An error occurred while fetching the latest article.';
+                titleElement.innerHTML = title;
+                contentElement.innerHTML = content;
             });
+        } else {
+            console.error('No latest articles found');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching latest blog posts:', error);
+    });
 
         // Fetch and display specific blog posts
         specificPostIds.forEach((postId, index) => {
@@ -136,20 +132,20 @@ smoothScrollTo(0, 3000); // 滚动到页面顶部，持续时间为1秒（1000�
                     if (data) {
                         const title = data.title;
                         const content = data.content;
-                        const titleElement = document.getElementById(`specificTitle${index + 2}`);
-                        const contentElement = document.getElementById(`specificContent${index + 2}`);
+                        const titleElement = document.getElementById(`specificTitle${index + 1}`);
+                        const contentElement = document.getElementById(`specificContent${index + 1}`);
 
                         titleElement.innerHTML = title;
                         contentElement.innerHTML = content;
                     } else {
-                        document.getElementById(`specificTitle${index + 2}`).innerHTML = 'Article Not Found';
-                        document.getElementById(`specificContent${index + 2}`).innerHTML = 'The content for this article could not be found.';
+                        document.getElementById(`specificTitle${index + 1}`).innerHTML = 'Article Not Found';
+                        document.getElementById(`specificContent${index + 1}`).innerHTML = 'The content for this article could not be found.';
                     }
                 })
                 .catch(error => {
                     console.error(`Error fetching post ${postId}:`, error);
-                    document.getElementById(`specificTitle${index + 2}`).innerHTML = 'Error';
-                    document.getElementById(`specificContent${index + 2}`).innerHTML = 'An error occurred while fetching this article.';
+                    document.getElementById(`specificTitle${index + 1}`).innerHTML = 'Error';
+                    document.getElementById(`specificContent${index + 1}`).innerHTML = 'An error occurred while fetching this article.';
                 });
         });
     });
