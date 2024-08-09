@@ -61,7 +61,7 @@ width: 300px;
             overflow: hidden;
             
             position: fixed; /* 將導航欄固定在屏幕頂部 */
-            width: calc(100% - 40px);
+            width: 100% ;
             top: 0; /* 與屏幕頂部對齊 */
             z-index: 1000; /* 確保在其他內容的上方 */
         }
@@ -95,7 +95,7 @@ width: 300px;
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            padding: 20px;
+            padding: 0;
         }
         h1 {
             color: #333;
