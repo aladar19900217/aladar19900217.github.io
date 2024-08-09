@@ -52,7 +52,7 @@ body, html {
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            padding: 0;
+           
         }
         h1 {
             color: #333;
@@ -118,10 +118,7 @@ max-width: 50%;
         max-width: 100%;
         height: auto;
     } 
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
+
 /*---------------------------------------*/
 /* 幻灯片容器样式 */
 #latestBlogPost2 {
