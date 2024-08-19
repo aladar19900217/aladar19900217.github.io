@@ -517,7 +517,7 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
       </div>
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all fade-up " data-delay="0.4s">
+          <div class="col-sm-6 col-lg-4 all fade-up " data-delay="0.3s">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -534,7 +534,7 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all fade-up" data-delay="0.8s">
+          <div class="col-sm-6 col-lg-4 all fade-up" data-delay="0.6s">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -1018,66 +1018,7 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
     window.addEventListener('scroll', checkVisibility);
     window.addEventListener('load', checkVisibility);
 </script>
-	<script>
-    function checkVisibility() {
-        const fadeInElements = document.querySelectorAll('.slide-in-left');
-        const slideInRightElements = document.querySelectorAll('.slide-in-right');
-        const slideInUpElements = document.querySelectorAll('.slide-in-up');
-        const windowHeight = window.innerHeight;
-        const threshold = 0.1; // 可見的閾值，比如視窗的10%
 
-        fadeInElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const elementHeight = rect.height;
-            const elementTop = rect.top;
-            const elementBottom = rect.bottom;
-
-            const visibleTop = Math.max(0, elementTop);
-            const visibleBottom = Math.min(windowHeight, elementBottom);
-
-            if ((visibleBottom - visibleTop) / elementHeight > threshold) {
-                element.classList.add('visible1');
-            } else {
-                element.classList.remove('visible1');
-            }
-        });
-
-        slideInRightElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const elementHeight = rect.height;
-            const elementTop = rect.top;
-            const elementBottom = rect.bottom;
-
-            const visibleTop = Math.max(0, elementTop);
-            const visibleBottom = Math.min(windowHeight, elementBottom);
-
-            if ((visibleBottom - visibleTop) / elementHeight > threshold) {
-                element.classList.add('visible1');
-            } else {
-                element.classList.remove('visible1');
-            }
-        });
-
-        slideInUpElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const elementHeight = rect.height;
-            const elementTop = rect.top;
-            const elementBottom = rect.bottom;
-
-            const visibleTop = Math.max(0, elementTop);
-            const visibleBottom = Math.min(windowHeight, elementBottom);
-
-            if ((visibleBottom - visibleTop) / elementHeight > threshold) {
-                element.classList.add('visible1');
-            } else {
-                element.classList.remove('visible1');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('load', checkVisibility);
-</script>
 </body>
 
 </html>
