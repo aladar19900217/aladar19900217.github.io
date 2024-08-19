@@ -131,6 +131,37 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
 }
 		
 	</style>
+	<style>
+        .fade-up {
+            opacity: 0;
+            transform: translateY(100px) ; /* 初始狀態下輕微旋轉 */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            display: flex;
+            transition-delay: 0s; /* 初始時不設延遲 */
+        }
+        .fade-up.visible {
+            opacity: 1;
+			transform: translateY(0);
+
+        }
+        /* 添加滑動效果 */
+        html {
+            scroll-behavior: smooth;
+        }
+</style>
+<style>
+        .section1 {
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap; /* 允許元素換行 */
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 0 20px; /* 在左右添加內邊距 */
+            box-sizing: border-box; /* 使內邊距和邊框計入元素的總寬度 */
+        }
+
+</style>
 </head>
 
 <body>
@@ -433,7 +464,7 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
   <!-- Hardware section -->
 
  
-  <section class="Hardware_section layout_padding-bottom">
+ <section class="Hardware_section layout_padding-bottom">
 
     <div class="container">
       <div class="heading_container heading_center" id="service" >      
@@ -443,7 +474,7 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
       </div>
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all Sliderail">
+          <div class="col-sm-6 col-lg-4 all fade-up " data-delay="0.4s">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -459,7 +490,7 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all Hinge">
+          <div class="col-sm-6 col-lg-4 all fade-up" data-delay="0.8s">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -859,6 +890,28 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
     });
   });
 </script>
+	    <script>
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.fade-up');
+            const windowHeight = window.innerHeight;
+
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    // 為可見的元素添加 visible 類，並根據 data-delay 設置延遲
+                    element.classList.add('visible');
+                    element.style.transitionDelay = element.getAttribute('data-delay');
+                } else {
+                    // 如果元素不在視窗內則移除 visible 類和延遲
+                    element.classList.remove('visible');
+                    element.style.transitionDelay = '0s';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+    </script>
 </body>
 
 </html>
