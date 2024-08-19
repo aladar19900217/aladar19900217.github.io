@@ -67,8 +67,7 @@
 	
 <style>
       body {
-   margin: 0;
-    padding: 0;
+    margin: 0;
     font-family: Arial, sans-serif;
 
     background: #fff; /* 背景色 */
@@ -132,76 +131,6 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
 }
 		
 	</style>
-<style>
-        .fade-up {
-            opacity: 0;
-            transform: translateY(100px) ; /* 初始狀態下輕微旋轉 */
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            display: flex;
-            transition-delay: 0s; /* 初始時不設延遲 */
-        }
-        .fade-up.visible {
-            opacity: 1;
-			transform: translateY(0);
-
-        }
-        /* 添加滑動效果 */
-        html {
-            scroll-behavior: smooth;
-        }
-</style>
-<style>
-        .section1 {
-            height: 100vh;
-            display: flex;
-            flex-wrap: wrap; /* 允許元素換行 */
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-
-            box-sizing: border-box; /* 使內邊距和邊框計入元素的總寬度 */
-        }
-
-</style>
-   <style>
-        .img-box2 {
-            opacity: 0;
-            transform: translateX(-100px); /* 從左邊移動 */
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-        .img-box2.visible1 {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .fade-in.visible1 {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(100px); /* 從右方移動 */
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-        .slide-in-right.visible1 {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .slide-in-up {
-            opacity: 0;
-            transform: translateY(100px); /* 從下方移動 */
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-        .slide-in-up.visible1 {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-    </style>	
-	
-	
-	
-	
 </head>
 
 <body>
@@ -514,7 +443,7 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
       </div>
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all fade-up " data-delay="0.4s">
+          <div class="col-sm-6 col-lg-4 all Sliderail">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -530,7 +459,7 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-4 all fade-up" data-delay="0.8s">
+          <div class="col-sm-6 col-lg-4 all Hinge">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -694,39 +623,37 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
 
  <div id="about_section" >
   <section class="about_section layout_padding"  >
-     <div class="container">
-	  <div class="content1">
+    <div class="container  ">
 
       <div class="row">
         <div class="col-md-6 ">
-          <div class="img-box fade-in img-box2" data-delay="0.4s">
+          <div class="img-box">
 		    
-            <img src="images/hallway01.jpg" alt="" class="fade-in-image">
+            <img src="images/hallway01.jpg" alt="">
           </div>
         </div>
-       <div class="col-md-6">
+        <div class="col-md-6">
           <div class="detail-box">
-            <div class="heading_container slide-in-right" data-delay="0.8s">
-              <h2>公司介紹</h2>
+            <div class="heading_container">
+              <h2>
+                公司介紹
+              </h2>
             </div>
-            <div class="heading_container slide-in-up" data-delay="1.2s">
-              <p style="color: #D3D3D3;">
-                公司創立於民國95年
-                <br>
-                經營項目：裝潢五金經銷批發商, 五金零售
-              </p>
-              <p style="color: #D3D3D3;">
-                我們的公司專注於提供優質的<strong>裝潢五金</strong>和<strong>系統櫃五金</strong>
-                。無論是需要家居裝潢配件還是系統櫃硬體，我們都有豐富的產品選擇。透過我們的<strong>五金零售</strong>
-                服務，您可以輕鬆找到符合您需求的產品。我們還提供批發服務，以滿足大宗採購需求，無論是經濟型還是高端產品，我們都能提供最佳的價格和服務。
-              </p>
-            </div>
+            <p style="color: #D3D3D3;">
+              公司創立於民國95年
+	      <br>
+	      經營項目：裝潢五金經銷批發商, 五金零售</p>
+	<p style="color: #D3D3D3;">我們的公司專注於提供優質的<strong>裝潢五金</strong>和<strong>系統櫃五金</strong>
+	。無論是需要家居裝潢配件還是系統櫃硬體，我們都有豐富的產品選擇。透過我們的<strong>五金零售</strong>
+	服務，您可以輕鬆找到符合您需求的產品。我們還提供批發服務，以滿足大宗採購需求，無論是經濟型還是高端產品，我們都能提供最佳的價格和服務。
+	</p>
+           <!--<a href="">
+              Read More
+            </a>-->
           </div>
         </div>
       </div>
-
     </div>
-</div>
   </section>
   </div>
   <!-- end about section -->
@@ -932,89 +859,6 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
     });
   });
 </script>
-    <script>
-        function checkVisibility() {
-            const elements = document.querySelectorAll('.fade-up');
-            const windowHeight = window.innerHeight;
-
-            elements.forEach(element => {
-                const rect = element.getBoundingClientRect();
-                if (rect.top < windowHeight && rect.bottom > 0) {
-                    // 為可見的元素添加 visible 類，並根據 data-delay 設置延遲
-                    element.classList.add('visible');
-                    element.style.transitionDelay = element.getAttribute('data-delay');
-                } else {
-                    // 如果元素不在視窗內則移除 visible 類和延遲
-                    element.classList.remove('visible');
-                    element.style.transitionDelay = '0s';
-                }
-            });
-        }
-
-        window.addEventListener('scroll', checkVisibility);
-        window.addEventListener('load', checkVisibility);
-    </script>
-<script>
-    function checkVisibility() {
-        const fadeInElements = document.querySelectorAll('.fade-in');
-        const slideInRightElements = document.querySelectorAll('.slide-in-right');
-        const slideInUpElements = document.querySelectorAll('.slide-in-up');
-        const windowHeight = window.innerHeight;
-        const threshold = 0.1; // 可見的閾值，比如視窗的10%
-
-        fadeInElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const elementHeight = rect.height;
-            const elementTop = rect.top;
-            const elementBottom = rect.bottom;
-
-            const visibleTop = Math.max(0, elementTop);
-            const visibleBottom = Math.min(windowHeight, elementBottom);
-
-            if ((visibleBottom - visibleTop) / elementHeight > threshold) {
-                element.classList.add('visible1');
-            } else {
-                element.classList.remove('visible1');
-            }
-        });
-
-        slideInRightElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const elementHeight = rect.height;
-            const elementTop = rect.top;
-            const elementBottom = rect.bottom;
-
-            const visibleTop = Math.max(0, elementTop);
-            const visibleBottom = Math.min(windowHeight, elementBottom);
-
-            if ((visibleBottom - visibleTop) / elementHeight > threshold) {
-                element.classList.add('visible1');
-            } else {
-                element.classList.remove('visible1');
-            }
-        });
-
-        slideInUpElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const elementHeight = rect.height;
-            const elementTop = rect.top;
-            const elementBottom = rect.bottom;
-
-            const visibleTop = Math.max(0, elementTop);
-            const visibleBottom = Math.min(windowHeight, elementBottom);
-
-            if ((visibleBottom - visibleTop) / elementHeight > threshold) {
-                element.classList.add('visible1');
-            } else {
-                element.classList.remove('visible1');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('load', checkVisibility);
-</script>
-
 </body>
 
 </html>
