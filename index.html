@@ -202,8 +202,24 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
             opacity: 1;
             transform: translateY(0);
         }
+    </style>
 
+	    <style>
+        .gif-image {
+            width: 2px;      /* 固定寬度 */
+            height: 2px;     /* 固定高度 */
+            overflow: hidden;  /* 隱藏超出容器的部分 */
+            border: 1px solid #000; /* 可選的邊框 */
+            display: flex;
+            align-items: center; /* 垂直居中 */
+            justify-content: center; /* 水平居中 */
+        }
 
+        .gif-image img {
+            width: 10%;  /* 使 GIF 圖片的寬度適應容器 */
+            height: 10%; /* 使 GIF 圖片的高度適應容器 */
+            object-fit: cover; /* 保持比例並裁剪超出部分 */
+        }
     </style>
 </head>
 
@@ -750,24 +766,34 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
                聯絡資訊
             </h4>
             <div class="contact_link_box">
+						  <div class="gif-image">
+			  <img id="gif-image" src="images/map.gif" alt="動畫 GIF" />
               <a href="https://reurl.cc/2YpxK9" target="_blank">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
                 <span>
                   地址 248021新北市五股區五權三路54號
                 </span>
-              </a>
-              <a >
-                <i class="fa fa-phone" aria-hidden="true"></i>
+              </a>  
+			  </div>
+        <div class="gif-image">
+			  <img id="gif-image" src="images/phone.gif" alt="動畫 GIF" />
+			  <a>
+               <!-- <i class="fa fa-phone" aria-hidden="true"></i>-->
                 <span>
                   電話 02-29022082
                 </span>
               </a>
-	      <a >
-		<i class="fa-solid fa-fax"></i>
+			  </div>
+				  <div class="gif-image">
+			  <img id="gif-image" src="images/fax.gif" alt="動畫 GIF" />
+	       <a>
+		<!--<i class="fa-solid fa-fax"></i>-->
                 <span>
                   傳真 02-29019905
                 </span>
-              </a>    
+		    
+			</a>
+			</div>  
 		    
               <!--<a href="mailto:aladar29022082@gmail.com">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -775,33 +801,20 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
                   信箱  aladar29022082@gmail.com
                 </span>
               </a>--> 
+		  <div class="gif-image">
+			  <img id="gif-image" src="images/web.gif" alt="動畫 GIF" />
 			  <a href="https://aladar19900217.github.io/">
-               <i class="fa-solid fa-globe" aria-hidden="true"></i>
+               <!--<i class="fa-solid fa-globe" aria-hidden="true"></i>-->
                 <span>
                   官網  https://aladar19900217.github.io/
                 </span>
               </a>
+			  </div>
 			  <div class="footer_social">
-             <!--<a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>-->
-			  <button onclick="openImagePopup2()"><!--<i class="fa-brands fa-line" aria-hidden="true"></i>--><div class="image-container">
+				  <button onclick="openImagePopup2()">
+			  <div class="image-container">
       <img src="images/webQR.png" alt="官網QR">
-    </div></button><!-- <a href=""> 
-                
-              </a>-->
+    </div></button>
             </div>
             </div>
 			
@@ -812,9 +825,12 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
             <a  class="footer-logo">
               線上服務
             </a>
-            <p>
+			<div class="gif-image">
+			  <img id="gif-image" src="images/line.gif" alt="動畫 GIF" />
+           <p>
             LINE ID @934mcllz
             </p>
+			 </div>
             <div class="footer_social">
              <!--<a href="">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
