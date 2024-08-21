@@ -103,17 +103,23 @@
 </style>
 <style>
 
-	/* 導航欄文字放大及變色效果 */
-	
 .navbar-nav .nav-link {
-font-family: 'Arial', sans-serif;
+  font-family: 'Arial', sans-serif;
   color: #333; /* 默認文字顏色 */
-  transition: all 0.3s ease; /* 添加過渡效果 */
+  transition: font-size 0.3s ease, transform 0.3s ease, background 0.3s ease, color 0.3s ease; /* 添加過渡效果 */
+  font-size: 1rem; /* 默認字體大小 */
 }
 
+/* 鼠標懸停時的效果 */
 .navbar-nav .nav-link:hover {
-  color: #ff6600; /* 鼠標懸停時的文字顏色 */
-  transform: scale(1.5); /* 鼠標懸停時的文字放大效果 */
+  font-size: 1.5rem; /* 懸停時字體大小 */
+  font-weight: bold; /* 懸停時字體加粗 */
+  background: linear-gradient(135deg, #ffb347, #ffcc33); /* 漸變色背景 */
+  -webkit-background-clip: text; /* 文字背景裁剪 */
+  background-clip: text; /* 文字背景裁剪 */
+  color: transparent; /* 使文字顏色透明，以便只顯示背景 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* 文字陰影效果 */
+  transform: scale(1.1); /* 鼠標懸停時的文字放大效果 */
 }
 	</style>
 
