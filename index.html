@@ -204,21 +204,20 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
         }
     </style>
 
-	    <style>
+<style>
         .gif-image {
-            width: 20px;      /* 固定寬度 */
-            height: 20px;     /* 固定高度 */
-            overflow: hidden;  /* 隱藏超出容器的部分 */
-         
             display: flex;
             align-items: center; /* 垂直居中 */
-            justify-content: center; /* 水平居中 */
+            gap: 10px; /* 連結和 GIF 之間的間距 */
         }
 
         .gif-image img {
-            width: 100%;  /* 使 GIF 圖片的寬度適應容器 */
-            height: 100%; /* 使 GIF 圖片的高度適應容器 */
-            object-fit: cover; /* 保持比例並裁剪超出部分 */
+            width: 30px; /* 固定 GIF 的寬度 */
+            height: auto; /* 根據寬度自動調整高度 */
+        }
+
+        .gif-image a span {
+            display: block; /* 確保連結文字顯示在一行 */
         }
     </style>
 </head>
@@ -830,10 +829,11 @@ font-family: '標楷體', 'Microsoft YaHei', sans-serif;
             </a>
 	<div class="gif-image">
 	<img id="gif-image" src="images/line.gif" alt="動畫 GIF" /> 
-	</div>
+	
            <p>
             LINE ID @934mcllz
             </p>
+	</div>
 			
             <div class="footer_social">
              <!--<a href="">
