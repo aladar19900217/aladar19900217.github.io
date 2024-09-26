@@ -96,8 +96,48 @@
 
 
 	</style>
+		    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* 初始不允许滚动 */
+            background: #fff;
+            transition: overflow 0s 3s; /* 3秒后允许滚动 */
+        }
+
+        #logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0; /* 初始状态设为透明 */
+            transition: opacity 1s ease-in-out;
+            z-index: 9999;
+            width: 200px;
+            height: 200px;
+        }
+
+        #logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        #contentlogo {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            visibility: hidden;
+        }
+    </style>
 	</head>
 	<body>
+		    <div id="logo">
+        <img src="images/aladar.png" alt="logo">
+    </div>
+
+    <div id="contentlogo">
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
@@ -507,7 +547,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Made 
 			</div>
 		</div>
 	</div>
-
+    </div>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -594,6 +634,31 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 });
+    </script>
+		   <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const logo = document.getElementById('logo');
+            const content = document.getElementById('contentlogo');
+            const body = document.body;
+
+            // 1秒后淡入 logo
+            setTimeout(() => {
+                logo.style.opacity = '1';
+
+                // 1秒后开始淡出 logo
+                setTimeout(() => {
+                    logo.style.opacity = '0';
+
+                    // 在 logo 完全淡出后显示内容
+                    setTimeout(() => {
+                        logo.style.display = 'none'; // 隐藏 logo
+                        content.style.visibility = 'visible'; // 显示内容
+                        content.style.opacity = '1'; // 淡入内容
+                        body.style.overflow = 'auto'; // 允许滚动
+                    }, 1250); // 与 logo 的淡出时间一致
+                }, 1000); // logo 淡入后的持续时间
+            }, 750); // 初始等待时间
+        });
     </script>
 	</body>
 </html>
